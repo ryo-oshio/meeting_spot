@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('spots', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('station_id')->constrained('stations');
+            $table->foreignId('direction_id')->constrained('directions');
             $table->string('title', 50);
             $table->string('body', 2000);
             $table->char("congetion",10);

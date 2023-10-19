@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('spots', function (Blueprint $table) {
-            $table->foreignId("station_id")->constrained();
+        Schema::create('station_train', function (Blueprint $table) {
+            $table->foreignId('station_id')->constrained('stations');
+            $table->foreignId('train_id')->constrained('trains');
+            $table->primary(['station_id', 'train_id']);
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('spots', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('station_train');
     }
 };
