@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('station_direction', function (Blueprint $table) {
-            $table->foreignId("station_id")->constrained();
+        Schema::create('trains', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('station_direction', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('trains');
     }
 };

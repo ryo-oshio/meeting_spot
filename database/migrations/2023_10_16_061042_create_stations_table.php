@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->foreignId("spot_id")->constrained();
+        Schema::create('stations', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('stations');
     }
 };

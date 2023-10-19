@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('spots', function (Blueprint $table) {
-            $table->foreignId("direction_id")->constrained();
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('spot_id')->constrained('spots');
+            $table->string('comment', 400);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('spots', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('comments');
     }
 };
