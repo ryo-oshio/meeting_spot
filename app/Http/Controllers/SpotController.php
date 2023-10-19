@@ -9,6 +9,6 @@ class SpotController extends Controller
 {
     public function index(Spot $spot)
     {
-        return $spot->get();
+        return view('spots.index')->with(['spots' => $spot->getByLimit()]);  
     }
 }
