@@ -11,4 +11,9 @@ class SpotController extends Controller
     {
         return view('spots.index')->with(['spots' => $spot->getByLimit()]);  
     }
+    
+    public function show(Spot $spot)
+    {
+        return view('spots.show')->with(['spot' => $spot]);
+    }
 }
