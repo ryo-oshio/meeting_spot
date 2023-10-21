@@ -11,4 +11,9 @@ class SpotController extends Controller
     {
         return $spot->get();
     }
+    
+    public function show(Spot $spot)
+    {
+        return view('spots.show')->with(['spot' => $spot]);
+    }
 }
