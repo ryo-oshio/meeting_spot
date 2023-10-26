@@ -22,6 +22,7 @@
                     </div>
                 @endforeach
             </div>
+            <a href='/spots/create'>create</a>
         </body>
     </x-app-layout>
 </html>
